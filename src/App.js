@@ -40,19 +40,20 @@ function App() {
 	}
 
 	return (
-		<>
-			<div className="card">
-				<h1>Todo List</h1>
+		<div className="app">
+			<h1>Todo List</h1>
+			<div className="todoList">
 				<TodoList todos={todos} toggleTodo={toggleTodo} />
-				<input ref={todoNameRef} type="text" />
-				<br />
-				<button onClick={handleAddTodo}>Add Todo</button>
-				<button onClick={handleClearTodos}>Clear Complete</button>
-				<p>
-					({todos.filter((todo) => !todo.complete).length} Left To Do)
-				</p>
 			</div>
-		</>
+			<form>
+				<input ref={todoNameRef} type="text" />
+				<button onClick={handleAddTodo}>Add Todo</button>
+			</form>
+			<button onClick={handleClearTodos} className="btn">
+				Clear Complete
+			</button>
+			<p>({todos.filter((todo) => !todo.complete).length} Left To Do)</p>
+		</div>
 	)
 }
 
