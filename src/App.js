@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react"
 import TodoList from "./TodoList"
 import { v4 as uuidv4 } from "uuid"
 import "./App.css"
+// import Todo from "./Todo"
 
 const LOCAL_STORAGE_KEY = "todoApp.todos"
 
@@ -39,16 +40,27 @@ function App() {
 		setTodos(newTodos)
 	}
 
+	function handleClearTodo(id) {
+		const newTodos = todos.filter((todo) => todo.id !== id)
+		setTodos(newTodos)
+	}
+
 	return (
 		<div className="app">
 			<h1>Todo List</h1>
-			<div className="todoList">
-				<TodoList todos={todos} toggleTodo={toggleTodo} />
-			</div>
 			<form>
 				<input ref={todoNameRef} type="text" />
-				<button onClick={handleAddTodo}>Add Todo</button>
+				<button onClick={handleAddTodo} className="addTodoBtn">
+					Add Todo
+				</button>
 			</form>
+			<div className="todoList">
+				<TodoList
+					todos={todos}
+					toggleTodo={toggleTodo}
+					handleClearTodo={handleClearTodo}
+				/>
+			</div>
 			<button onClick={handleClearTodos} className="btn">
 				Clear Complete
 			</button>
