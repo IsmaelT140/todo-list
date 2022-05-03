@@ -45,8 +45,25 @@ function App() {
 		setTodos(newTodos)
 	}
 
+	function changeTheme() {
+		document.body.classList.toggle("dark")
+	}
+
 	return (
 		<div className="app">
+			<div className="appHeader">
+				<button onClick={changeTheme}>
+					<img
+						src={
+							"https://cdn-icons-png.flaticon.com/512/606/606807.png"
+						}
+						length={15}
+						width={15}
+						alt=""
+					/>
+					Change Theme
+				</button>
+			</div>
 			<h1>Todo List</h1>
 			<form>
 				<input ref={todoNameRef} type="text" />
@@ -54,6 +71,7 @@ function App() {
 					Add Todo
 				</button>
 			</form>
+			<p>({todos.filter((todo) => !todo.complete).length} Left To Do)</p>
 			<div className="todoList">
 				<TodoList
 					todos={todos}
@@ -64,7 +82,6 @@ function App() {
 			<button onClick={handleClearTodos} className="btn">
 				Clear Complete
 			</button>
-			<p>({todos.filter((todo) => !todo.complete).length} Left To Do)</p>
 		</div>
 	)
 }

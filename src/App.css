@@ -1,12 +1,48 @@
 #root{
     margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+body{
+    --background-color: rgb(217, 209, 207);
+    --secondary-background-color: rgb(0, 94, 123);
+    --text-color: rgb(90, 237, 253);
+    --accent-color: rgb(71, 123, 178);
+    --button-text-color: var(--background-color);
+    --transition-delay: 1s;
+    
+    
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: var(--transition-delay);
+}
+
+body.dark{
+    --background-color: rgb(25, 44, 79);
+    --secondary-background-color: rgb(79, 98, 112);
+    --text-color: rgb(178, 173, 156);
+    --accent-color: rgb(91, 161, 125);
 }
 
 .app{
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: var(--secondary-background-color);
+}
+
+.appHeader{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
 }
 
 .todoList{
@@ -14,8 +50,50 @@
     flex-flow: column wrap;
 }
 
+.todo{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    border-top: 1px solid var(--accent-color);
+    background-color: var(--secondary-background-color);
+    color: var(--text-color);
+}
+
+.addTodoBtn{
+    border-radius: 0 20px 20px 0;
+    padding: 10px 20px;
+    font-size: 1.25em;
+}
+
+.todoBtn{
+    border-radius: 20px;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.toggleBtn{
+    margin-left: 20px;
+}
+
+.complete{
+    text-decoration: line-through;
+    opacity: 50%;
+}
+
+.btn{
+    border-radius: 12px;
+    padding: 10px 20px;
+}
+
 h1{
     font-size: 2.5em;
+}
+
+p{
+    font-size: 1.25em;
 }
 
 label{
@@ -26,37 +104,20 @@ input{
     border-radius: 20px 0 0 20px;
     padding: 10px 20px;
     font-size: 1.25em;
+    border-color: var(--accent-color);
+    background-color: transparent;
+    color: var(--text-color);
 }
 
-.complete{
-    text-decoration: line-through;
-    opacity: 70%;
+button{
+    background-color: var(--accent-color);
+    color: var(--button-text-color);
+    transition: var(--transition-delay);
+    transform: scale(1);
+    border-color: var(--accent-color);
 }
 
-.todo{
-    background-color: whitesmoke;
-    border-radius: 20px;
-    padding: 10px 20px;
-    font-size: 1.5em;
-}
-
-.todoBtn{
-    border-radius: 20px;
-}
-
-.addTodoBtn{
-    border-radius: 0 20px 20px 0;
-    padding: 10px 20px;
-    font-size: 1.25em;
-}
-
-
-.btn{
-    border-radius: 12px;
-    padding: 10px 20px;
-    margin-top: 20px;
-}
-
-p{
-    font-size: 1.25em;
+button:hover, button:focus{
+    cursor: pointer;
+    transform: scale(1.1);
 }
